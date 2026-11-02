@@ -1,0 +1,15 @@
+{
+  "site": "shop.example-tea.test",
+  "notice_url": "https://shop.example-tea.test/privacy",
+  "as_of": "2026-11-02",
+  "first_party": ["shop.example-tea.test"],
+  "recipients": [
+    {"name": "Google Analytics", "domains": ["google-analytics.com", "googletagmanager.com"], "purpose": "analytics", "quote": "We use Google Analytics, only after you agree, to count visits."},
+    {"name": "Meta Pixel", "domains": ["connect.facebook.net"], "purpose": "advertising", "quote": "With your permission we share page views with Meta to measure our ads."},
+    {"name": "Google Fonts", "domains": ["fonts.gstatic.com", "fonts.googleapis.com"], "purpose": "fonts", "needs_consent": false, "quote": "Fonts are loaded from Google."},
+    {"name": "OneTrust", "domains": ["cookielaw.org"], "purpose": "consent-tool", "needs_consent": false, "quote": "Your choices are stored by our consent provider."},
+    {"name": "Klaviyo", "domains": ["klaviyo.com"], "purpose": "email-marketing", "quote": "Newsletter sign-ups are handled by Klaviyo."}
+  ],
+  "consent_claims": {"blocks_before_consent": true, "honors_reject": true, "honors_gpc": true},
+  "data_categories": ["contact", "order", "payment", "device"]
+}

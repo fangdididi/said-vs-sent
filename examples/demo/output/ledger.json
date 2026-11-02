@@ -1,0 +1,69 @@
+{
+  "site": "shop.example-tea.test",
+  "as_of": "2026-11-02",
+  "findings": [
+    {
+      "code": "COOKIE_BEFORE_CHOICE",
+      "level": "mismatch",
+      "state": "baseline",
+      "host": "www.google-analytics.com",
+      "who": "Google Analytics",
+      "evidence": "set _ga from https://www.google-analytics.com/g/collect",
+      "fix": "Stop this response from setting cookies until opt-in."
+    },
+    {
+      "code": "FIRES_AFTER_REJECT",
+      "level": "mismatch",
+      "state": "reject",
+      "host": "www.clarity.ms",
+      "who": "Microsoft Clarity",
+      "evidence": "https://www.clarity.ms/tag/abc at 2026-11-02T10:00:05Z after reject",
+      "fix": "Make the reject path tear down or never load this tag; re-test in a fresh profile."
+    },
+    {
+      "code": "FIRES_BEFORE_CHOICE",
+      "level": "mismatch",
+      "state": "baseline",
+      "host": "www.google-analytics.com",
+      "who": "Google Analytics",
+      "evidence": "https://www.google-analytics.com/g/collect at 2026-11-02T10:00:05Z with the banner untouched",
+      "fix": "Hold this tag until the visitor opts in (consent-mode default denied, or load it from the consent callback)."
+    },
+    {
+      "code": "IGNORES_GPC",
+      "level": "mismatch",
+      "state": "gpc",
+      "host": "connect.facebook.net",
+      "who": "Meta Pixel",
+      "evidence": "https://connect.facebook.net/en_US/fbevents.js at 2026-11-02T10:00:04Z with Sec-GPC: 1",
+      "fix": "Treat Sec-GPC: 1 / navigator.globalPrivacyControl as an opt-out of sale/sharing before loading ad tags."
+    },
+    {
+      "code": "UNDECLARED_FIELD",
+      "level": "mismatch",
+      "state": "",
+      "host": "",
+      "who": "",
+      "evidence": "form 'checkout' on /checkout collects 'birthday' (date-of-birth)",
+      "fix": "Add 'date-of-birth' to the categories the notice says you collect, or stop asking for it."
+    },
+    {
+      "code": "UNDECLARED_RECIPIENT",
+      "level": "mismatch",
+      "state": "accept,reject",
+      "host": "www.clarity.ms",
+      "who": "Microsoft Clarity",
+      "evidence": "https://www.clarity.ms/tag/abc (session-replay) first seen 2026-11-02T10:00:07Z",
+      "fix": "Name this recipient and its purpose in the notice, or remove the tag that calls it."
+    },
+    {
+      "code": "DECLARED_NOT_SEEN",
+      "level": "note",
+      "state": "",
+      "host": "",
+      "who": "",
+      "evidence": "Klaviyo is in the notice but no capture reached klaviyo.com",
+      "fix": "Either the pages tested never load it, or the notice is stale. Test the page that uses it, or drop it from the notice."
+    }
+  ]
+}

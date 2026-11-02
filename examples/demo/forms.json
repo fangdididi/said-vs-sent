@@ -1,0 +1,9 @@
+[
+  {"name": "checkout", "page": "/checkout", "fields": [
+    {"name": "email", "category": "contact"},
+    {"name": "address", "category": "contact"},
+    {"name": "card", "category": "payment"},
+    {"name": "birthday", "category": "date-of-birth"}
+  ]},
+  {"name": "newsletter", "page": "/", "fields": [{"name": "email", "category": "contact"}]}
+]
